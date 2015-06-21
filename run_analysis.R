@@ -83,10 +83,10 @@ colnames(finalData) = colNames;
 # Create a new table with final data
 finalData  = finalData[,names(finalData) != 'activityLabes'];
 
-# Summarizing the finalData table to include just the mean of each variable for each activity and each subject
+# Summarizing the finalData table to include just the mean
 tidyData    = aggregate(finalData[,names(finalData) != c('activityId','subjectId')],by=list(activityId=finalData$activityId,subjectId = finalData$subjectId),mean);
 
-# Merging the tidyData with activityLabes to include descriptive acitvity names
+# Merging the tidyData with activityLabes
 tidyData    = merge(tidyData,activityLabes,by='activityId',all.x=TRUE);
 
 # Export the tidyData set 
